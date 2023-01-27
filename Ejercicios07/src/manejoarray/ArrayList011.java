@@ -14,45 +14,17 @@ import java.util.Scanner;
  *
  * @author reroes
  */
-public class ArrayList01 {
+public class ArrayList011 {
 
     public static void main(String[] args) {
-
-        // creación de un ArrayList
-        ArrayList<Integer> arreglo = new ArrayList<>();
-
-        arreglo.add(10);
-        arreglo.add(20);
-        arreglo.add(30);
-        arreglo.add(40);
-        arreglo.add(50);
-        arreglo.add(60);
-        arreglo.add(1000);
-        arreglo.add(2000);
-        arreglo.add(3000);
-
-        for (int i = 0; i < arreglo.size(); i++) {
-            System.out.println(arreglo.get(i));
+        ArrayList<String> arreglo2 = obtenerDatos();
+        String cadenaFinal = obtenerCadenaFinal(arreglo2);
+        System.out.printf("%s\n", cadenaFinal);
         }
-
-        System.out.println("----------------------------------");
-
-        ArrayList<Double> arreglo3 = new ArrayList<>();
-
-        arreglo3.add(10.2);
-        arreglo3.add(11.2);
-        arreglo3.add(12.2);
-        arreglo3.add(13.2);
-
-        for (int i = 0; i < arreglo3.size(); i++) {
-            System.out.println(arreglo3.get(i));
-        }
-
-        System.out.println("----------------------------------");
-
+    
+    public static ArrayList<String> obtenerDatos(){
         Scanner entrada = new Scanner(System.in);
         entrada.useLocale(Locale.US);
-
         ArrayList<String> arreglo2 = new ArrayList<>();
         String pais;
         boolean bandera = true;
@@ -61,22 +33,22 @@ public class ArrayList01 {
             System.out.println("Ingrese por favor un nombre de un país");
             pais = entrada.nextLine();
             arreglo2.add(pais);
-
             System.out.println("Ingrese (si) para salir del ciclo");
             opcion = entrada.nextLine();
             if (opcion.equals("si")) {
                 bandera = false;
             }
         }
+        return arreglo2;
+    }
+
+    public static String obtenerCadenaFinal(ArrayList<String>arreglo2) {
+        String cadenaFinal = "";
         for (int i = 0; i < arreglo2.size(); i++) {
             System.out.println(arreglo2.get(i));
+            cadenaFinal = String.format("%s%s\n", cadenaFinal, arreglo2.get(i));
         }
-
-
-        /*
-        ArrayList <String> arreglo2 = new ArrayList<>();
-        
-        ArrayList <Boolean> arreglo4 = new ArrayList<>();
-         */
+        return cadenaFinal;
     }
 }
+
